@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AdminLayout from '@/app/admin/_components/AdminLayout';
 import {
   adminColors,
@@ -8,7 +8,8 @@ import {
   adminStyles,
   mergeStyles,
 } from '@/app/admin/_lib/style/adminTokens';
-import { initialMembers } from '@/app/data/usersData';
+import { initialMembers } from '@/lib/data/memberData';
+import { initialNotices } from '@/lib/data/notice';
 
 /**
  * 관리자 대시보드 메인 페이지
@@ -23,32 +24,37 @@ export default function AdminDashboard() {
 
   /**
    * 공지사항 목록 상태
-   * - 현재는 더미 데이터 사용
-   * - 나중에 API 연결 시 useEffect로 데이터 가져오기
+   * - localStorage에서 데이터 불러오기
+   * - 없으면 더미 데이터 사용
    */
-  const [notices, setNotices] = useState([
-    {
-      id: 3,
-      title: '서비스 정규 업데이트',
-      date: '2025-10-15',
-      views: 245,
-      isNew: true,
-    },
-    {
-      id: 2,
-      title: '신규 영화 업데이트',
-      date: '2025-10-14',
-      views: 189,
-      isNew: false,
-    },
-    {
-      id: 1,
-      title: '긴급 백업 안내',
-      date: '2025-10-10',
-      views: 512,
-      isNew: false,
-    },
-  ]);
+  const [notices, setNotices] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+
+  // 컴포넌트 마운트 시 localStorage에서 데이터 불러오기
+  useEffect(() => {
+    const saved = localStorage.getItem('notices');
+    if (saved) {
+      const loadedNotices = JSON.parse(saved);
+      // 고정 공지사항을 맨 위로 정렬
+      const sortedNotices = sortNotices(loadedNotices);
+      setNotices(sortedNotices);
+    } else {
+      const sortedNotices = sortNotices(initialNotices);
+      setNotices(sortedNotices);
+      localStorage.setItem('notices', JSON.stringify(sortedNotices));
+    }
+  }, []);
+
+  // 공지사항 정렬 함수 (고정 공지 → 일반 공지)
+  const sortNotices = (noticeList) => {
+    return [...noticeList].sort((a, b) => {
+      // isPinned가 true인 것을 우선
+      if (a.isPinned && !b.isPinned) return -1;
+      if (!a.isPinned && b.isPinned) return 1;
+      // 같은 고정 상태면 날짜 최신순
+      return new Date(b.date) - new Date(a.date);
+    });
+  };
 
   // ========================================
   // 이벤트 핸들러
@@ -60,7 +66,10 @@ export default function AdminDashboard() {
    */
   const handleDelete = (id) => {
     if (confirm('정말 삭제하시겠습니까?')) {
-      setNotices(notices.filter((notice) => notice.id !== id));
+      const updated = notices.filter((notice) => notice.id !== id);
+      const sortedUpdated = sortNotices(updated);
+      setNotices(sortedUpdated);
+      localStorage.setItem('notices', JSON.stringify(sortedUpdated));
       alert('삭제되었습니다.');
     }
   };
@@ -92,7 +101,7 @@ export default function AdminDashboard() {
     {
       icon: '📢',
       label: '총 공지사항',
-      value: '3',
+      value: notices.length,
       color: adminColors.statRed,
       bg: adminColors.statRedBg,
     },
@@ -222,7 +231,10 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ ...adminStyles.table.th, width: '80px' }}>번호</th>
                 <th style={adminStyles.table.th}>제목</th>
-                <th style={{ ...adminStyles.table.th, width: '150px' }}>
+                <th style={{ ...adminStyles.table.th, width: '120px' }}>
+                  작성자
+                </th>
+                <th style={{ ...adminStyles.table.th, width: '120px' }}>
                   등록일
                 </th>
                 <th style={{ ...adminStyles.table.th, width: '100px' }}>
@@ -234,7 +246,7 @@ export default function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {notices.map((notice) => (
+              {notices.slice(0, showAll ? notices.length : 5).map((notice) => (
                 <tr key={notice.id}>
                   <td style={adminStyles.table.td}>{notice.id}</td>
                   <td style={adminStyles.table.td}>
@@ -256,7 +268,29 @@ export default function AdminDashboard() {
                           NEW
                         </span>
                       )}
+                      {notice.isPinned && (
+                        <span
+                          style={mergeStyles(
+                            adminStyles.badge.base,
+                            {
+                              background: adminColors.statPurpleBg,
+                              color: adminColors.statPurple,
+                            },
+                            { marginLeft: '8px' }
+                          )}
+                        >
+                          📌 고정
+                        </span>
+                      )}
                     </div>
+                  </td>
+                  <td
+                    style={{
+                      ...adminStyles.table.td,
+                      color: adminColors.textTertiary,
+                    }}
+                  >
+                    {notice.author}
                   </td>
                   <td
                     style={{
@@ -267,7 +301,7 @@ export default function AdminDashboard() {
                     {notice.date}
                   </td>
                   <td style={{ ...adminStyles.table.td, fontWeight: 500 }}>
-                    {notice.views}
+                    {notice.views.toLocaleString()}
                   </td>
                   <td style={adminStyles.table.td}>
                     <div style={{ display: 'flex', gap: '8px' }}>
@@ -298,6 +332,29 @@ export default function AdminDashboard() {
             </tbody>
           </table>
         </div>
+
+        {/* 더 보기 버튼 */}
+        {notices.length > 5 && (
+          <div
+            style={{
+              padding: adminSizes.spacing.lg,
+              textAlign: 'center',
+              borderTop: `1px solid ${adminColors.border}`,
+            }}
+          >
+            <button
+              style={mergeStyles(
+                adminStyles.button.base,
+                adminStyles.button.secondary
+              )}
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll
+                ? `접기 (${notices.length}개)`
+                : `전체 공지사항 보기 총: (${notices.length}개)`}
+            </button>
+          </div>
+        )}
       </section>
     </AdminLayout>
   );

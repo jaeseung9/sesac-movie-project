@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { initialMembers } from '@/app/data/usersData';
+import { initialMembers } from '@/lib/data/usersData';
 import AdminLayout from '@/app/admin/_components/AdminLayout';
 import {
   adminColors,
