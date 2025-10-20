@@ -1,13 +1,14 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import AdminLayout from "@/app/admin/_components/AdminLayout";
+import { useState } from 'react';
+import AdminLayout from '@/app/admin/_components/AdminLayout';
 import {
   adminColors,
   adminSizes,
   adminStyles,
   mergeStyles,
-} from "@/app/admin/_lib/style/adminTokens";
+} from '@/app/admin/_lib/style/adminTokens';
+import { initialMembers } from '@/app/data/usersData';
 
 /**
  * 관리자 대시보드 메인 페이지
@@ -28,22 +29,22 @@ export default function AdminDashboard() {
   const [notices, setNotices] = useState([
     {
       id: 3,
-      title: "서비스 정규 업데이트",
-      date: "2025-10-15",
+      title: '서비스 정규 업데이트',
+      date: '2025-10-15',
       views: 245,
       isNew: true,
     },
     {
       id: 2,
-      title: "신규 영화 업데이트",
-      date: "2025-10-14",
+      title: '신규 영화 업데이트',
+      date: '2025-10-14',
       views: 189,
       isNew: false,
     },
     {
       id: 1,
-      title: "긴급 백업 안내",
-      date: "2025-10-10",
+      title: '긴급 백업 안내',
+      date: '2025-10-10',
       views: 512,
       isNew: false,
     },
@@ -58,9 +59,9 @@ export default function AdminDashboard() {
    * @param {number} id - 삭제할 공지사항 ID
    */
   const handleDelete = (id) => {
-    if (confirm("정말 삭제하시겠습니까?")) {
+    if (confirm('정말 삭제하시겠습니까?')) {
       setNotices(notices.filter((notice) => notice.id !== id));
-      alert("삭제되었습니다.");
+      alert('삭제되었습니다.');
     }
   };
 
@@ -69,7 +70,7 @@ export default function AdminDashboard() {
    * @param {number} id - 수정할 공지사항 ID
    */
   const handleEdit = (id) => {
-    alert("수정 페이지로 이동합니다.");
+    alert('수정 페이지로 이동합니다.');
     // TODO: window.location.href = `/admin/notice/edit/${id}`;
   };
 
@@ -77,7 +78,7 @@ export default function AdminDashboard() {
    * 새 공지사항 작성 버튼 클릭 핸들러
    */
   const handleAdd = () => {
-    window.location.href = "/admin/notice/create";
+    window.location.href = '/admin/notice/create';
   };
 
   // ========================================
@@ -89,30 +90,30 @@ export default function AdminDashboard() {
    */
   const stats = [
     {
-      icon: "📢",
-      label: "총 공지사항",
-      value: "3",
+      icon: '📢',
+      label: '총 공지사항',
+      value: '3',
       color: adminColors.statRed,
       bg: adminColors.statRedBg,
     },
     {
-      icon: "👥",
-      label: "전체 회원",
-      value: "1,247",
+      icon: '👥',
+      label: '전체 회원',
+      value: initialMembers.length,
       color: adminColors.statBlue,
       bg: adminColors.statBlueBg,
     },
     {
-      icon: "🎬",
-      label: "등록 영화",
-      value: "8,532",
+      icon: '🎬',
+      label: '등록 영화',
+      value: '8,532',
       color: adminColors.statYellow,
       bg: adminColors.statYellowBg,
     },
     {
-      icon: "⭐",
-      label: "리뷰 수",
-      value: "15,438",
+      icon: '⭐',
+      label: '리뷰 수',
+      value: '15,438',
       color: adminColors.statGreen,
       bg: adminColors.statGreenBg,
     },
@@ -125,8 +126,8 @@ export default function AdminDashboard() {
           ======================================== */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: adminSizes.spacing.xl,
           marginBottom: adminSizes.spacing.xxl,
         }}
@@ -142,8 +143,8 @@ export default function AdminDashboard() {
             {/* 카드 상단: 아이콘 + 라벨 */}
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 gap: adminSizes.spacing.md,
                 marginBottom: adminSizes.spacing.lg,
               }}
@@ -160,7 +161,7 @@ export default function AdminDashboard() {
               {/* 라벨 */}
               <div
                 style={{
-                  fontSize: "14px",
+                  fontSize: '14px',
                   color: adminColors.textTertiary,
                   fontWeight: 500,
                 }}
@@ -181,19 +182,19 @@ export default function AdminDashboard() {
         {/* 섹션 헤더 */}
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             padding: `20px ${adminSizes.spacing.xl}`,
             borderBottom: `1px solid ${adminColors.border}`,
           }}
         >
           <h2
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              fontSize: "18px",
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontSize: '18px',
               fontWeight: 700,
               color: adminColors.textPrimary,
               margin: 0,
@@ -219,15 +220,15 @@ export default function AdminDashboard() {
           <table style={adminStyles.table.table}>
             <thead style={adminStyles.table.thead}>
               <tr>
-                <th style={{ ...adminStyles.table.th, width: "80px" }}>번호</th>
+                <th style={{ ...adminStyles.table.th, width: '80px' }}>번호</th>
                 <th style={adminStyles.table.th}>제목</th>
-                <th style={{ ...adminStyles.table.th, width: "150px" }}>
+                <th style={{ ...adminStyles.table.th, width: '150px' }}>
                   등록일
                 </th>
-                <th style={{ ...adminStyles.table.th, width: "100px" }}>
+                <th style={{ ...adminStyles.table.th, width: '100px' }}>
                   조회수
                 </th>
-                <th style={{ ...adminStyles.table.th, width: "200px" }}>
+                <th style={{ ...adminStyles.table.th, width: '200px' }}>
                   관리
                 </th>
               </tr>
@@ -249,7 +250,7 @@ export default function AdminDashboard() {
                           style={mergeStyles(
                             adminStyles.badge.base,
                             adminStyles.badge.error,
-                            { marginLeft: "8px" }
+                            { marginLeft: '8px' }
                           )}
                         >
                           NEW
@@ -269,7 +270,7 @@ export default function AdminDashboard() {
                     {notice.views}
                   </td>
                   <td style={adminStyles.table.td}>
-                    <div style={{ display: "flex", gap: "8px" }}>
+                    <div style={{ display: 'flex', gap: '8px' }}>
                       <button
                         onClick={() => handleEdit(notice.id)}
                         style={mergeStyles(
