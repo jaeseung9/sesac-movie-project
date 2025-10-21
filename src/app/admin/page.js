@@ -10,6 +10,7 @@ import {
 } from '@/app/admin/_lib/style/adminTokens';
 import { initialMembers } from '@/lib/data/memberData';
 import { initialNotices } from '@/lib/data/notice';
+import Header from '@/component/Header';
 
 /**
  * 관리자 대시보드 메인 페이지
@@ -113,7 +114,7 @@ export default function AdminDashboard() {
       bg: adminColors.statBlueBg,
     },
     {
-      icon: '🎬',
+      icon: 'movie-icon.png',
       label: '등록 영화',
       value: '8,532',
       color: adminColors.statYellow,

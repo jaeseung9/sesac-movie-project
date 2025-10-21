@@ -1,5 +1,6 @@
 'use client';
-
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   adminColors,
   adminSizes,
@@ -21,6 +22,7 @@ export default function AdminLayout({
   title = '대시보드',
   currentMenu = 'dashboard',
 }) {
+  const router = useRouter();
   /**
    * 사이드바 네비게이션 메뉴 항목
    * - icon: 메뉴 아이콘
@@ -31,20 +33,20 @@ export default function AdminLayout({
   const navItems = [
     { icon: '📊', label: '대시보드', href: '/admin', key: 'dashboard' },
     { icon: '👥', label: '회원 관리', href: '/admin/users', key: 'users' },
-    { icon: '🎬', label: '영화 관리', href: '/admin/movies', key: 'movies' },
-    { icon: '⭐', label: '리뷰 관리', href: '/admin/reviews', key: 'reviews' },
+    //{ icon: '🎬', label: '영화 관리', href: '/admin/movies', key: 'movies' },
+    //{ icon: '⭐', label: '리뷰 관리', href: '/admin/reviews', key: 'reviews' },
     // {
     //   icon: "📢",
     //   label: "공지사항",
     //   href: "/admin/announcement",
     //   key: "announcement",
     // },
-    {
-      icon: '⚙️',
-      label: '시스템 설정',
-      href: '/admin/settings',
-      key: 'settings',
-    },
+    //{
+    //  icon: '⚙️',
+    //  label: '시스템 설정',
+    //  href: '/admin/settings',
+    //  key: 'settings',
+    //},
   ];
 
   return (
@@ -67,11 +69,13 @@ export default function AdminLayout({
             marginBottom: adminSizes.spacing.xl,
           }}
         >
-          <div style={adminStyles.sidebar.logo}>
-            <span>🎬</span>
-            <span>MovieHub</span>
-            <span style={adminStyles.sidebar.logoBadge}>ADMIN</span>
-          </div>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <div style={{ ...adminStyles.sidebar.logo, cursor: 'pointer' }}>
+              <span>🎬</span>
+              <span>MovieHub</span>
+              <span style={adminStyles.sidebar.logoBadge}>ADMIN</span>
+            </div>
+          </Link>
         </div>
 
         {/* 네비게이션 메뉴 */}
@@ -150,9 +154,10 @@ export default function AdminLayout({
               )}
               onClick={() => {
                 if (confirm('로그아웃 하시겠습니까?')) {
+                  // TODO: 실제 로그아웃 처리 (localStorage, 세션 등)
+                  localStorage.removeItem('isAdmin');
                   alert('로그아웃 되었습니다.');
-                  // TODO: 실제 로그아웃 처리
-                  // window.location.href = '/login';
+                  router.push('/');
                 }
               }}
             >

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { initialMembers } from '@/lib/data/usersData';
+import { initialMembers } from '@/lib/data/memberData';
 import AdminLayout from '@/app/admin/_components/AdminLayout';
 import {
   adminColors,
@@ -227,14 +227,14 @@ export default function MemberManagement() {
             <option value="휴면">휴면</option>
             <option value="정지">정지</option>
           </select>
-          <button
+          {/*           <button
             style={mergeStyles(
               adminStyles.button.base,
               adminStyles.button.primary
             )}
           >
             + 회원 추가
-          </button>
+          </button> */}
         </div>
       </div>
 
