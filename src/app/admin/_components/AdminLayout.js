@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   adminColors,
   adminSizes,
@@ -31,20 +32,6 @@ export default function AdminLayout({
   const navItems = [
     { icon: "📊", label: "대시보드", href: "/admin", key: "dashboard" },
     { icon: "👥", label: "회원 관리", href: "/admin/users", key: "users" },
-    { icon: "🎬", label: "영화 관리", href: "/admin/movies", key: "movies" },
-    { icon: "⭐", label: "리뷰 관리", href: "/admin/reviews", key: "reviews" },
-    // {
-    //   icon: "📢",
-    //   label: "공지사항",
-    //   href: "/admin/announcement",
-    //   key: "announcement",
-    // },
-    {
-      icon: "⚙️",
-      label: "시스템 설정",
-      href: "/admin/settings",
-      key: "settings",
-    },
   ];
 
   return (
@@ -68,9 +55,27 @@ export default function AdminLayout({
           }}
         >
           <div style={adminStyles.sidebar.logo}>
-            <span>🎬</span>
-            <span>MovieHub</span>
-            <span style={adminStyles.sidebar.logoBadge}>ADMIN</span>
+            <a
+              href="/"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: adminSizes.spacing.md,
+                textDecoration: "none",
+                color: "inherit",
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                src="/Logo.png"
+                alt="MovieHub Logo"
+                width={32}
+                height={32}
+                style={{ objectFit: "contain" }}
+              />
+              <span>MovieHub</span>
+              <span style={adminStyles.sidebar.logoBadge}>ADMIN</span>
+            </a>
           </div>
         </div>
 
@@ -151,8 +156,7 @@ export default function AdminLayout({
               onClick={() => {
                 if (confirm("로그아웃 하시겠습니까?")) {
                   alert("로그아웃 되었습니다.");
-                  // TODO: 실제 로그아웃 처리
-                  // window.location.href = '/login';
+                  window.location.href = "/";
                 }
               }}
             >
