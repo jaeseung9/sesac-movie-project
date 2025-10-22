@@ -1,18 +1,23 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Header from '@/component/Header';
 import Footer from '@/component/Footer';
-
-export const metadata = {
-  title: 'MovieHub - 영화추천',
-  description: '영화 리뷰와 평점을 공유하는 커뮤니티',
-};
+import Chatbot from '@/component/Chatbot/index';
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
+  // 어드민 페이지인지 확인
+  const isAdminPage = pathname?.startsWith('/admin');
+
   return (
     <html lang="ko">
       <body>
-        <Header />
+        {!isAdminPage && <Header />}
         {children}
-        <Footer />
+        {!isAdminPage && <Footer />}
+        {!isAdminPage && <Chatbot />}
       </body>
     </html>
   );

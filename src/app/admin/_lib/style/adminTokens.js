@@ -3,88 +3,88 @@
 
 export const adminColors = {
   // Primary Colors
-  primary: '#E50914', // MovieHub Red
-  primaryHover: '#B70710',
+  primary: "#E50914", // MovieHub Red
+  primaryHover: "#B70710",
 
   // Background Colors
-  bgPrimary: '#F5F7FA', // 메인 배경
-  bgSecondary: '#FFFFFF', // 카드 배경
-  bgDark: '#1E293B', // 사이드바
-  bgHover: '#F8FAFC', // 호버 배경
+  bgPrimary: "#F5F7FA", // 메인 배경
+  bgSecondary: "#FFFFFF", // 카드 배경
+  bgDark: "#1E293B", // 사이드바
+  bgHover: "#F8FAFC", // 호버 배경
 
   // Text Colors
-  textPrimary: '#1A202C', // 제목
-  textSecondary: '#334155', // 본문
-  textTertiary: '#64748B', // 부가 정보
-  textLight: '#94A3B8', // 연한 텍스트
-  textWhite: '#FFFFFF',
-  textWhiteAlpha: 'rgba(255, 255, 255, 0.7)',
+  textPrimary: "#1A202C", // 제목
+  textSecondary: "#334155", // 본문
+  textTertiary: "#64748B", // 부가 정보
+  textLight: "#94A3B8", // 연한 텍스트
+  textWhite: "#FFFFFF",
+  textWhiteAlpha: "rgba(255, 255, 255, 0.7)",
 
   // Border Colors
-  border: '#E2E8F0',
-  borderLight: '#F1F5F9',
-  borderDark: 'rgba(255, 255, 255, 0.1)',
+  border: "#E2E8F0",
+  borderLight: "#F1F5F9",
+  borderDark: "rgba(255, 255, 255, 0.1)",
 
   // Status Colors
-  success: '#10B981',
-  successBg: '#D1FAE5',
-  successHover: '#059669',
+  success: "#10B981",
+  successBg: "#D1FAE5",
+  successHover: "#059669",
 
-  warning: '#D97706',
-  warningBg: '#FEF3C7',
+  warning: "#D97706",
+  warningBg: "#FEF3C7",
 
-  error: '#EF4444',
-  errorBg: '#FEE2E2',
-  errorHover: '#DC2626',
+  error: "#EF4444",
+  errorBg: "#FEE2E2",
+  errorHover: "#DC2626",
 
-  info: '#3B82F6',
-  infoBg: '#DBEAFE',
-  infoHover: '#2563EB',
+  info: "#3B82F6",
+  infoBg: "#DBEAFE",
+  infoHover: "#2563EB",
 
   // Stat Card Colors
-  statRed: '#DC2626',
-  statRedBg: '#FEE2E2',
-  statBlue: '#2563EB',
-  statBlueBg: '#DBEAFE',
-  statYellow: '#D97706',
-  statYellowBg: '#FEF3C7',
-  statGreen: '#059669',
-  statGreenBg: '#D1FAE5',
-  statPurple: '#7C3AED',
-  statPurpleBg: '#EDE9FE',
-  statOrange: '#EA580C',
-  statOrangeBg: '#FED7AA',
+  statRed: "#DC2626",
+  statRedBg: "#FEE2E2",
+  statBlue: "#2563EB",
+  statBlueBg: "#DBEAFE",
+  statYellow: "#D97706",
+  statYellowBg: "#FEF3C7",
+  statGreen: "#059669",
+  statGreenBg: "#D1FAE5",
+  statPurple: "#7C3AED",
+  statPurpleBg: "#EDE9FE",
+  statOrange: "#EA580C",
+  statOrangeBg: "#FED7AA",
 };
 
 export const adminSizes = {
   // Sidebar
-  sidebarWidth: '260px',
-  sidebarPadding: '24px 0',
+  sidebarWidth: "260px",
+  sidebarPadding: "24px 0",
 
   // Header
-  headerHeight: '70px',
-  headerPadding: '0 32px',
+  headerHeight: "70px",
+  headerPadding: "0 32px",
 
   // Spacing
   spacing: {
-    xs: '4px',
-    sm: '8px',
-    md: '12px',
-    lg: '16px',
-    xl: '24px',
-    xxl: '32px',
+    xs: "4px",
+    sm: "8px",
+    md: "12px",
+    lg: "16px",
+    xl: "24px",
+    xxl: "32px",
   },
 
   // Border Radius
   radius: {
-    sm: '6px',
-    md: '8px',
-    lg: '12px',
-    full: '50%',
+    sm: "6px",
+    md: "8px",
+    lg: "12px",
+    full: "50%",
   },
 
   // Content Padding
-  contentPadding: '32px',
+  contentPadding: "32px",
 };
 
 export const adminTypography = {
@@ -93,14 +93,14 @@ export const adminTypography = {
 
   // Font Sizes
   fontSize: {
-    xs: '11px',
-    sm: '13px',
-    md: '14px',
-    lg: '16px',
-    xl: '18px',
-    xxl: '20px',
-    xxxl: '24px',
-    display: '32px',
+    xs: "11px",
+    sm: "13px",
+    md: "14px",
+    lg: "16px",
+    xl: "18px",
+    xxl: "20px",
+    xxxl: "24px",
+    display: "32px",
   },
 
   // Font Weights
@@ -120,27 +120,27 @@ export const adminTypography = {
 
   // Letter Spacing
   letterSpacing: {
-    tight: '-0.5px',
-    normal: '0',
-    wide: '0.5px',
+    tight: "-0.5px",
+    normal: "0",
+    wide: "0.5px",
   },
 };
 
 export const adminShadows = {
-  sm: '0 2px 8px rgba(0, 0, 0, 0.05)',
-  md: '0 4px 12px rgba(0, 0, 0, 0.08)',
-  lg: '0 8px 20px rgba(0, 0, 0, 0.1)',
+  sm: "0 2px 8px rgba(0, 0, 0, 0.05)",
+  md: "0 4px 12px rgba(0, 0, 0, 0.08)",
+  lg: "0 8px 20px rgba(0, 0, 0, 0.1)",
 
   // Button Shadows
-  buttonPrimary: '0 4px 12px rgba(16, 185, 129, 0.3)',
-  buttonInfo: '0 2px 8px rgba(59, 130, 246, 0.3)',
-  buttonError: '0 2px 8px rgba(239, 68, 68, 0.3)',
+  buttonPrimary: "0 4px 12px rgba(16, 185, 129, 0.3)",
+  buttonInfo: "0 2px 8px rgba(59, 130, 246, 0.3)",
+  buttonError: "0 2px 8px rgba(239, 68, 68, 0.3)",
 };
 
 export const adminTransitions = {
-  fast: 'all 0.15s ease',
-  normal: 'all 0.2s ease',
-  slow: 'all 0.3s ease',
+  fast: "all 0.15s ease",
+  normal: "all 0.2s ease",
+  slow: "all 0.3s ease",
 };
 
 export const adminZIndex = {
@@ -157,20 +157,20 @@ export const adminStyles = {
   // Sidebar Styles
   sidebar: {
     container: {
-      position: 'fixed',
+      position: "fixed",
       left: 0,
       top: 0,
       width: adminSizes.sidebarWidth,
-      height: '100vh',
+      height: "100vh",
       background: adminColors.bgDark,
       padding: adminSizes.sidebarPadding,
       zIndex: adminZIndex.sidebar,
-      overflowY: 'auto',
+      overflowY: "auto",
     },
 
     logo: {
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
       gap: adminSizes.spacing.md,
       color: adminColors.textWhite,
       fontSize: adminTypography.fontSize.xxl,
@@ -181,18 +181,18 @@ export const adminStyles = {
       background: adminColors.primary,
       color: adminColors.textWhite,
       fontSize: adminTypography.fontSize.xs,
-      padding: '3px 8px',
+      padding: "3px 8px",
       borderRadius: adminSizes.radius.sm,
       fontWeight: adminTypography.fontWeight.semibold,
     },
 
     navLink: {
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
       gap: adminSizes.spacing.md,
-      padding: '12px 16px',
+      padding: "12px 16px",
       color: adminColors.textWhiteAlpha,
-      textDecoration: 'none',
+      textDecoration: "none",
       borderRadius: adminSizes.radius.md,
       fontSize: adminTypography.fontSize.md,
       fontWeight: adminTypography.fontWeight.medium,
@@ -208,14 +208,14 @@ export const adminStyles = {
   // Header Styles
   header: {
     container: {
-      position: 'sticky',
+      position: "sticky",
       top: 0,
       height: adminSizes.headerHeight,
       background: adminColors.bgSecondary,
       borderBottom: `1px solid ${adminColors.border}`,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
       padding: adminSizes.headerPadding,
       zIndex: adminZIndex.header,
     },
@@ -228,8 +228,8 @@ export const adminStyles = {
     },
 
     adminInfo: {
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
       gap: adminSizes.spacing.md,
       padding: `${adminSizes.spacing.sm} ${adminSizes.spacing.lg}`,
       background: adminColors.bgHover,
@@ -237,13 +237,13 @@ export const adminStyles = {
     },
 
     avatar: {
-      width: '36px',
-      height: '36px',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      width: "36px",
+      height: "36px",
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       borderRadius: adminSizes.radius.full,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       color: adminColors.textWhite,
       fontWeight: adminTypography.fontWeight.semibold,
       fontSize: adminTypography.fontSize.md,
@@ -261,16 +261,16 @@ export const adminStyles = {
 
     statCard: {
       padding: adminSizes.spacing.xl,
-      //cursor: "pointer",
+      cursor: "pointer",
     },
 
     statIcon: {
-      width: '48px',
-      height: '48px',
-      borderRadius: '10px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      width: "48px",
+      height: "48px",
+      borderRadius: "10px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       fontSize: adminTypography.fontSize.xxxl,
     },
 
@@ -284,15 +284,15 @@ export const adminStyles = {
   // Button Styles
   button: {
     base: {
-      padding: '10px 20px',
-      border: 'none',
+      padding: "10px 20px",
+      border: "none",
       borderRadius: adminSizes.radius.md,
       fontSize: adminTypography.fontSize.md,
       fontWeight: adminTypography.fontWeight.semibold,
-      cursor: 'pointer',
+      cursor: "pointer",
       transition: adminTransitions.normal,
-      display: 'inline-flex',
-      alignItems: 'center',
+      display: "inline-flex",
+      alignItems: "center",
       gap: adminSizes.spacing.sm,
     },
 
@@ -317,7 +317,7 @@ export const adminStyles = {
     },
 
     small: {
-      padding: '8px 16px',
+      padding: "8px 16px",
       fontSize: adminTypography.fontSize.sm,
     },
   },
@@ -325,12 +325,12 @@ export const adminStyles = {
   // Table Styles
   table: {
     container: {
-      overflowX: 'auto',
+      overflowX: "auto",
     },
 
     table: {
-      width: '100%',
-      borderCollapse: 'collapse',
+      width: "100%",
+      borderCollapse: "collapse",
     },
 
     thead: {
@@ -339,11 +339,11 @@ export const adminStyles = {
 
     th: {
       padding: `${adminSizes.spacing.lg} ${adminSizes.spacing.xl}`,
-      textAlign: 'left',
+      textAlign: "left",
       fontSize: adminTypography.fontSize.sm,
       fontWeight: adminTypography.fontWeight.semibold,
       color: adminColors.textTertiary,
-      textTransform: 'uppercase',
+      textTransform: "uppercase",
       letterSpacing: adminTypography.letterSpacing.wide,
       borderBottom: `1px solid ${adminColors.border}`,
     },
@@ -359,8 +359,8 @@ export const adminStyles = {
   // Badge Styles
   badge: {
     base: {
-      display: 'inline-block',
-      padding: '4px 10px',
+      display: "inline-block",
+      padding: "4px 10px",
       borderRadius: adminSizes.radius.lg,
       fontSize: adminTypography.fontSize.xs,
       fontWeight: adminTypography.fontWeight.semibold,
@@ -390,25 +390,25 @@ export const adminStyles = {
   // Form Styles
   form: {
     input: {
-      padding: '10px 16px',
+      padding: "10px 16px",
       border: `1px solid ${adminColors.border}`,
       borderRadius: adminSizes.radius.md,
       fontSize: adminTypography.fontSize.md,
       color: adminColors.textSecondary,
       background: adminColors.bgSecondary,
-      outline: 'none',
+      outline: "none",
       transition: adminTransitions.normal,
     },
 
     select: {
-      padding: '10px 16px',
+      padding: "10px 16px",
       border: `1px solid ${adminColors.border}`,
       borderRadius: adminSizes.radius.md,
       fontSize: adminTypography.fontSize.md,
       color: adminColors.textSecondary,
       background: adminColors.bgSecondary,
-      cursor: 'pointer',
-      outline: 'none',
+      cursor: "pointer",
+      outline: "none",
     },
   },
 };
@@ -428,7 +428,7 @@ export const conditionalStyle = (condition, trueStyle, falseStyle = {}) => {
 // 호버 스타일 생성 헬퍼
 export const createHoverStyle = (baseColor, hoverColor) => ({
   transition: adminTransitions.normal,
-  ':hover': {
+  ":hover": {
     background: hoverColor,
   },
 });
