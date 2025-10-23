@@ -1,25 +1,31 @@
 'use client';
+
 import styles from './Header.module.css';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useAuth } from '@/app/auth/AuthContext';
 
 export default function Header() {
+  const { user } = useAuth();
+  console.log('user', user);
+
   const [query, setQuery] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 기존 추천 드롭다운
-  const [suggestions, setSuggestions] = useState([]); // 자동완성 결과
-  const [recent, setRecent] = useState([]); // 최근 검색어
-  const [saveSearch, setSaveSearch] = useState(true); // 저장 ON/OFF
-  const [showSuggestionBox, setShowSuggestionBox] = useState(false); // 검색 관련 드롭다운 표시 여부
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [recent, setRecent] = useState([]);
+  const [saveSearch, setSaveSearch] = useState(true);
+  const [showSuggestionBox, setShowSuggestionBox] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loggedInAdmin, setLoggedInAdmin] = useState(null);
 
   const router = useRouter();
-  const closeTimer = useRef(null); // 추천 드롭다운 닫기 타이머
-  const suggestionTimer = useRef(null); // 자동완성 디바운스 타이머
-  const wrapperRef = useRef(null); // 검색창 주변 클릭 감지용
+  const closeTimer = useRef(null);
+  const suggestionTimer = useRef(null);
+  const wrapperRef = useRef(null);
 
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
-  // --- 추천 데이터 (원본 포함: 장르, 기분, 상황) ---
   const moodRecommendations = [
     { label: '슬플 때', genres: '18,10749' },
     { label: '기분전환', genres: '35,10751' },
@@ -51,11 +57,7 @@ export default function Header() {
     { label: '비오는 날', genres: '18,10749' },
     { label: '잠 안 올 때', genres: '35' },
   ];
-  // --- end 추천 데이터 ---
 
-  // -------------------------
-  // 최근 검색어 불러오기 (localStorage)
-  // -------------------------
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem('recentSearches')) || [];
@@ -65,9 +67,18 @@ export default function Header() {
     }
   }, []);
 
-  // -------------------------
-  // 외부 클릭 시 검색 드롭다운 닫기
-  // -------------------------
+  useEffect(() => {
+    try {
+      const userData = JSON.parse(localStorage.getItem('loggedInUser'));
+      const adminData = JSON.parse(localStorage.getItem('loggedInAdmin'));
+      setLoggedInUser(userData);
+      setLoggedInAdmin(adminData);
+    } catch {
+      setLoggedInUser(null);
+      setLoggedInAdmin(null);
+    }
+  }, [user]);
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
@@ -78,9 +89,6 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []);
 
-  // -------------------------
-  // 자동완성 요청 (디바운스)
-  // -------------------------
   useEffect(() => {
     if (!query || query.trim().length < 2) {
       setSuggestions([]);
@@ -129,9 +137,6 @@ export default function Header() {
     };
   }, [query, API_KEY]);
 
-  // -------------------------
-  // 검색 실행 (폼 제출)
-  // -------------------------
   const handleSearch = (e) => {
     e.preventDefault();
     const q = query.trim();
@@ -151,9 +156,6 @@ export default function Header() {
     setShowSuggestionBox(false);
   };
 
-  // -------------------------
-  // 제안 클릭 (제목/사람 선택)
-  // -------------------------
   const handleSuggestionClick = (item) => {
     const q = item.title;
     router.push(`/search?q=${encodeURIComponent(q)}`);
@@ -170,9 +172,6 @@ export default function Header() {
     setShowSuggestionBox(false);
   };
 
-  // -------------------------
-  // 최근검색 전체삭제
-  // -------------------------
   const clearRecent = () => {
     try {
       localStorage.removeItem('recentSearches');
@@ -180,11 +179,9 @@ export default function Header() {
     setRecent([]);
   };
 
-  // -------------------------
-  // 추천 드롭다운 (기존) 토글 관련
-  // -------------------------
-  const handleRecommendClick = (genres) => {
-    router.push(`/recommendations?genres=${genres}`);
+  const handleRecommendClick = (genres, label) => {
+    const encodedLabel = encodeURIComponent(label);
+    router.push(`/recommendations?genres=${genres}&label=${encodedLabel}`);
     setIsDropdownOpen(false);
   };
 
@@ -202,12 +199,38 @@ export default function Header() {
     }, 500);
   };
 
-  // -------------------------
-  // 최근 검색어 항목 클릭 (입력창에 채우기)
-  // -------------------------
   const handleRecentClick = (item) => {
     setQuery(item);
     setShowSuggestionBox(true);
+  };
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem('loggedInUser');
+      localStorage.removeItem('loggedInAdmin');
+      setLoggedInUser(null);
+      setLoggedInAdmin(null);
+      // Prevent caching of previous page after logout
+      window.history.replaceState(null, '', '/');
+      router.push('/');
+    } catch (err) {
+      console.error('Logout error:', err);
+      router.push('/');
+    }
+  };
+
+  const handleAdminPageClick = () => {
+    router.push('/admin');
+  };
+
+  const handleMypageClick = () => {
+    if (loggedInUser || loggedInAdmin) {
+      router.push('/mypage');
+    } else {
+      if (confirm('로그인을 먼저 해야 합니다.')) {
+        router.push('/login');
+      }
+    }
   };
 
   return (
@@ -215,15 +238,15 @@ export default function Header() {
       <div className={styles.headerContainer}>
         <div className={styles.logoSection}>
           <Link href="/" className={styles.logo}>
-            <div className={styles.logoTextGroup}>
-              <span className={styles.logoMain}>MovieHub</span>
-              <span className={styles.logoSub}>REVIEWS</span>
-            </div>
             <img
               src="/Logo.png"
               alt="MovieHub Logo"
               className={styles.logoImage}
             />
+            <div className={styles.logoTextGroup}>
+              <span className={styles.logoMain}>MovieHub</span>
+              <span className={styles.logoSub}>REVIEWS</span>
+            </div>
           </Link>
         </div>
 
@@ -246,7 +269,9 @@ export default function Header() {
                     <button
                       key={item.label}
                       className={`${styles.recommendationItemButton} ${styles.genreButton}`}
-                      onClick={() => handleRecommendClick(item.genres)}
+                      onClick={() =>
+                        handleRecommendClick(item.genres, item.label)
+                      }
                     >
                       {item.label}
                     </button>
@@ -261,7 +286,9 @@ export default function Header() {
                     <button
                       key={item.label}
                       className={`${styles.recommendationItemButton} ${styles.moodButton}`}
-                      onClick={() => handleRecommendClick(item.genres)}
+                      onClick={() =>
+                        handleRecommendClick(item.genres, item.label)
+                      }
                     >
                       {item.label}
                     </button>
@@ -276,7 +303,9 @@ export default function Header() {
                     <button
                       key={item.label}
                       className={`${styles.recommendationItemButton} ${styles.situationButton}`}
-                      onClick={() => handleRecommendClick(item.genres)}
+                      onClick={() =>
+                        handleRecommendClick(item.genres, item.label)
+                      }
                     >
                       {item.label}
                     </button>
@@ -334,10 +363,10 @@ export default function Header() {
                   width: '360px',
                   maxHeight: '420px',
                   overflowY: 'auto',
-                  background: '#fff',
-                  color: '#000',
+                  background: '#2a2a2a',
+                  color: '#fff',
                   borderRadius: '6px',
-                  boxShadow: '0 6px 18px rgba(0,0,0,0.2)',
+                  boxShadow: '0 6px 18px rgba(0,0,0,0.4)',
                   zIndex: 60,
                 }}
               >
@@ -354,6 +383,7 @@ export default function Header() {
                           display: 'flex',
                           gap: '10px',
                           alignItems: 'center',
+                          backgroundColor: '#2a2a2a',
                         }}
                         onClick={() => handleSuggestionClick(s)}
                       >
@@ -361,7 +391,7 @@ export default function Header() {
                           style={{
                             width: 40,
                             height: 56,
-                            background: '#eee',
+                            background: '#444',
                             borderRadius: 4,
                             overflow: 'hidden',
                           }}
@@ -385,6 +415,7 @@ export default function Header() {
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 fontSize: 12,
+                                color: '#aaa',
                               }}
                             >
                               No
@@ -393,7 +424,7 @@ export default function Header() {
                         </div>
                         <div style={{ flex: 1 }}>
                           <div style={{ fontWeight: 600 }}>{s.title}</div>
-                          <div style={{ fontSize: 12, color: '#666' }}>
+                          <div style={{ fontSize: 12, color: '#bbb' }}>
                             {s.media_type} {s.sub ? `· ${s.sub}` : ''}
                           </div>
                         </div>
@@ -410,19 +441,18 @@ export default function Header() {
                         display: 'flex',
                         justifyContent: 'space-between',
                         padding: '8px 10px',
-                        borderBottom: '1px solid #eee',
+                        borderBottom: '1px solid #444',
                         alignItems: 'center',
                       }}
                     >
-                      <strong>최근 검색어</strong>
+                      <strong style={{ color: '#ddd' }}>최근 검색어</strong>
                       <div style={{ display: 'flex', gap: 8 }}>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             setSaveSearch((s) => !s);
                           }}
-                          className={styles.smallTextButton}
-                          style={{ fontSize: 12 }}
+                          className={styles.suggestionControlButton}
                         >
                           {saveSearch ? '저장 끄기' : '저장 켜기'}
                         </button>
@@ -431,8 +461,7 @@ export default function Header() {
                             e.stopPropagation();
                             clearRecent();
                           }}
-                          className={styles.smallTextButton}
-                          style={{ fontSize: 12, color: '#e53e3e' }}
+                          className={`${styles.suggestionControlButton} ${styles.deleteAllButton}`}
                         >
                           전체삭제
                         </button>
@@ -452,7 +481,7 @@ export default function Header() {
                         onClick={() => handleRecentClick(item)}
                       >
                         <div>{item}</div>
-                        <div style={{ fontSize: 12, color: '#666' }}>
+                        <div style={{ fontSize: 12 }}>
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
@@ -465,7 +494,7 @@ export default function Header() {
                               } catch {}
                               setRecent(updated);
                             }}
-                            className={styles.smallTextButton}
+                            className={`${styles.suggestionControlButton} ${styles.deleteButton}`}
                           >
                             삭제
                           </button>
@@ -477,7 +506,7 @@ export default function Header() {
 
                 {/* 쿼리 있으나 결과 없음 */}
                 {query && suggestions.length === 0 && (
-                  <div style={{ padding: 12, color: '#666' }}>
+                  <div style={{ padding: 12, color: '#bbb' }}>
                     검색 결과가 없습니다.
                   </div>
                 )}
@@ -485,18 +514,53 @@ export default function Header() {
             )}
         </div>
 
-        {/* 인증 / 링크 섹션 */}
+        {/* 인증 / 링크 섹션 - 로그인 상태에 따라 표시 */}
         <div className={styles.authSection}>
           <div className={styles.authButtons}>
             <Link href="/" className={styles.loginButton}>
               홈
             </Link>
-            <Link href="/mypage" className={styles.mypageLink}>
-              마이페이지
-            </Link>
-            <Link href="/login" className={styles.signupButton}>
-              로그인
-            </Link>
+            {(loggedInUser || loggedInAdmin) ? (
+              <Link href="/mypage" className={styles.mypageLink}>
+                마이페이지
+              </Link>
+            ) : (
+              <button onClick={handleMypageClick} className={styles.mypageLink}>
+                마이페이지
+              </button>
+            )}
+
+            {loggedInAdmin ? (
+              <>
+                <span className={styles.welcomeText}>
+                  {loggedInAdmin.name}님 환영합니다
+                </span>
+                <button
+                  onClick={handleAdminPageClick}
+                  className={styles.loginButton}
+                >
+                  관리자 페이지로 이동
+                </button>
+                <button onClick={handleLogout} className={styles.logoutButton}>
+                  로그아웃
+                </button>
+              </>
+            ) : loggedInUser ? (
+              <>
+                <span className={styles.welcomeText}>
+                  {loggedInUser.name}님 환영합니다
+                </span>
+                <button onClick={handleLogout} className={styles.logoutButton}>
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className={styles.loginButton}>
+                  로그인
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

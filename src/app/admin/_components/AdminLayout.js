@@ -1,44 +1,59 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useAuth } from '@/app/auth/AuthContext';
 import {
   adminColors,
   adminSizes,
   adminStyles,
   mergeStyles,
-} from "@/app/admin/_lib/style/adminTokens";
+} from '@/app/admin/_lib/style/adminTokens';
 
-/**
- * 관리자 페이지 공통 레이아웃
- * - 사이드바, 헤더, 푸터를 포함
- * - 모든 관리자 페이지에서 재사용
- *
- * @param {ReactNode} children - 페이지 내용
- * @param {string} title - 페이지 제목 (헤더에 표시)
- * @param {string} currentMenu - 현재 활성화된 메뉴 (예: 'dashboard', 'users')
- */
 export default function AdminLayout({
   children,
-  title = "대시보드",
-  currentMenu = "dashboard",
+  title = '대시보드',
+  currentMenu = 'dashboard',
 }) {
-  /**
-   * 사이드바 네비게이션 메뉴 항목
-   * - icon: 메뉴 아이콘
-   * - label: 메뉴 이름
-   * - href: 링크 경로
-   * - key: 현재 메뉴 구분용 키
-   */
+  const { user } = useAuth();
+  const router = useRouter();
+
+  // Check if user is authenticated as admin on mount
+  useEffect(() => {
+    const adminData = JSON.parse(localStorage.getItem('loggedInAdmin'));
+    if (!adminData) {
+      // If no admin data, redirect to main page
+      router.replace('/');
+    }
+  }, [router, user]);
+
   const navItems = [
-    { icon: "📊", label: "대시보드", href: "/admin", key: "dashboard" },
-    { icon: "👥", label: "회원 관리", href: "/admin/users", key: "users" },
+    { icon: '📊', label: '대시보드', href: '/admin', key: 'dashboard' },
+    { icon: '👥', label: '회원 관리', href: '/admin/users', key: 'users' },
+    { icon: '📋', label: '문의 관리', href: '/admin/fqa', key: 'fqa' },
   ];
+
+  const handleLogout = () => {
+    if (confirm('로그아웃 하시겠습니까?')) {
+      try {
+        localStorage.removeItem('loggedInAdmin');
+        localStorage.removeItem('loggedInUser');
+        // Prevent caching of admin page after logout
+        window.history.replaceState(null, '', '/');
+        router.push('/');
+      } catch (err) {
+        console.error('Logout error:', err);
+        router.push('/');
+      }
+    }
+  };
 
   return (
     <div
       style={{
-        display: "flex",
-        minHeight: "100vh",
+        display: 'flex',
+        minHeight: '100vh',
         background: adminColors.bgPrimary,
       }}
     >
@@ -58,12 +73,12 @@ export default function AdminLayout({
             <a
               href="/"
               style={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
                 gap: adminSizes.spacing.md,
-                textDecoration: "none",
-                color: "inherit",
-                cursor: "pointer",
+                textDecoration: 'none',
+                color: 'inherit',
+                cursor: 'pointer',
               }}
             >
               <Image
@@ -71,7 +86,7 @@ export default function AdminLayout({
                 alt="MovieHub Logo"
                 width={32}
                 height={32}
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: 'contain' }}
               />
               <span>MovieHub</span>
               <span style={adminStyles.sidebar.logoBadge}>ADMIN</span>
@@ -80,7 +95,7 @@ export default function AdminLayout({
         </div>
 
         {/* 네비게이션 메뉴 */}
-        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           {navItems.map((item, index) => (
             <li
               key={index}
@@ -92,7 +107,6 @@ export default function AdminLayout({
                 href={item.href}
                 style={mergeStyles(
                   adminStyles.sidebar.navLink,
-                  // 현재 메뉴면 빨간색 배경 활성화
                   item.key === currentMenu
                     ? adminStyles.sidebar.navLinkActive
                     : {}
@@ -100,9 +114,9 @@ export default function AdminLayout({
               >
                 <span
                   style={{
-                    fontSize: "18px",
-                    width: "20px",
-                    textAlign: "center",
+                    fontSize: '18px',
+                    width: '20px',
+                    textAlign: 'center',
                   }}
                 >
                   {item.icon}
@@ -128,8 +142,8 @@ export default function AdminLayout({
           {/* 오른쪽 영역: 관리자 정보 + 로그아웃 */}
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
+              display: 'flex',
+              alignItems: 'center',
               gap: adminSizes.spacing.lg,
             }}
           >
@@ -138,7 +152,7 @@ export default function AdminLayout({
               <div style={adminStyles.header.avatar}>재승</div>
               <span
                 style={{
-                  fontSize: "14px",
+                  fontSize: '14px',
                   fontWeight: 600,
                   color: adminColors.textSecondary,
                 }}
@@ -153,12 +167,7 @@ export default function AdminLayout({
                 adminStyles.button.base,
                 adminStyles.button.secondary
               )}
-              onClick={() => {
-                if (confirm("로그아웃 하시겠습니까?")) {
-                  alert("로그아웃 되었습니다.");
-                  window.location.href = "/";
-                }
-              }}
+              onClick={handleLogout}
             >
               로그아웃
             </button>
@@ -167,7 +176,6 @@ export default function AdminLayout({
 
         {/* ========================================
             메인 콘텐츠 (페이지별 내용)
-            - children으로 전달받은 내용 표시
             ======================================== */}
         <main style={{ padding: adminSizes.contentPadding }}>{children}</main>
 
@@ -177,9 +185,9 @@ export default function AdminLayout({
         <footer
           style={{
             padding: `${adminSizes.spacing.xl} ${adminSizes.contentPadding}`,
-            textAlign: "center",
+            textAlign: 'center',
             color: adminColors.textLight,
-            fontSize: "13px",
+            fontSize: '13px',
             background: adminColors.bgSecondary,
             borderTop: `1px solid ${adminColors.border}`,
           }}

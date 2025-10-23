@@ -1,0 +1,146 @@
+.container {
+  background-color: #111;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.faqBox {
+  background: #1b1b1b;
+  color: #fff;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 30px 40px;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e50914;
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #ccc;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* 검색창 */
+.searchBox {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.searchBox input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: #fff;
+  width: 250px;
+}
+
+.searchBox button {
+  background-color: #e50914;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 테이블 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #333;
+  text-align: center;
+  padding: 12px;
+}
+
+.table th {
+  background-color: #222;
+  font-weight: 600;
+}
+
+.table tr:hover {
+  background-color: #2f2f2f;
+}
+
+.noData {
+  text-align: center;
+  color: #aaa;
+  padding: 20px;
+}
+
+/* 하단 영역 */
+.footerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pagination button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #e50914;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination .active {
+  background: #e50914;
+}
+
+.bottomButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  border-color: #e50914;
+  color: #fff;
+}
