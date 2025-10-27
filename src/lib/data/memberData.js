@@ -1,9 +1,9 @@
 export const initialMembers = [
   {
     id: 1,
-    name: '김철수',
-    email: 'kim.cs@example.com',
-    password: 'pass1234!',
+    name: '서재승',
+    email: 'seojaeseung9@gmail.com',
+    password: '123456',
     phone: '010-1234-5678',
     joinDate: '2024-01-15',
     status: '활성',
@@ -549,7 +549,7 @@ export const initialMembers = [
     role: '프리미엄',
     lastLogin: '2025-10-19',
   },
-   {
+  {
     id: 51,
     name: '김새싹',
     email: 'team3@example.com',
@@ -560,7 +560,7 @@ export const initialMembers = [
     role: '프리미엄',
     lastLogin: '2025-10-20',
   },
-     {
+  {
     id: 52,
     name: '새싹',
     email: 'test@test.com',
@@ -571,5 +571,4 @@ export const initialMembers = [
     role: '프리미엄',
     lastLogin: '2025-10-21',
   },
-
 ];
