@@ -6,14 +6,8 @@
 📎 유튜브 링크
 https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
 
-## 🎬 시연 영상
-
-
-<video controls width="600">
-  <source src="https://github.com/jaeseung9/sesac-movie-project/raw/main/video.mp4" type="video/mp4">
-</video>
-
-> 🔥 영상 클릭 시 YouTube에서 전체 화면으로 시청 가능합니다.
+## 🎬 시연 영상 (브라우저에서 바로 재생)
+👉 https://jaeseung9.github.io/sesac-movie-project/video.html
 
 Next.js 기반 영화 플랫폼 + 관리자 대시보드 + Gemini AI 영화 추천 챗봇
 관리자 페이지를 통해 회원 / FAQ / 공지사항을 관리하고,
