@@ -6,6 +6,16 @@
 📎 유튜브 링크
 https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
 
+## 🎬 시연 영상
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=AVKieFa0nQY" target="_blank">
+    <img src="https://img.youtube.com/vi/AVKieFa0nQY/maxresdefault.jpg" alt="프로젝트 시연 영상 썸네일" width="600">
+  </a>
+</p>
+
+> 🔥 영상 클릭 시 YouTube에서 전체 화면으로 시청 가능합니다.
+
 Next.js 기반 영화 플랫폼 + 관리자 대시보드 + Gemini AI 영화 추천 챗봇
 관리자 페이지를 통해 회원 / FAQ / 공지사항을 관리하고,
 사용자 화면에서는 영화 추천 챗봇이 플로팅 UI 형태로 제공됩니다.
