@@ -9,7 +9,11 @@ https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
 ## 🎬 시연 영상
 
 
-<video src="https://github.com/jaeseung9/sesac-movie-project/raw/main/video.mp4" controls width="600"></video>
+<p align="center">
+  <a href="https://youtu.be/AVKieFa0nQY" target="_blank">
+    <img src="https://img.youtube.com/vi/AVKieFa0nQY/maxresdefault.jpg" alt="시연 영상 썸네일" width="600">
+  </a>
+</p>
 
 > 🔥 영상 클릭 시 YouTube에서 전체 화면으로 시청 가능합니다.
 
