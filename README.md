@@ -11,7 +11,6 @@ https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
 
 <video controls width="600">
   <source src="https://github.com/jaeseung9/sesac-movie-project/raw/main/video.mp4" type="video/mp4">
-  해당 브라우저는 video 태그를 지원하지 않습니다.
 </video>
 
 > 🔥 영상 클릭 시 YouTube에서 전체 화면으로 시청 가능합니다.
