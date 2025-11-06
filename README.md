@@ -106,7 +106,7 @@ npm run dev
 🔑 환경 변수 설정 (.env.local)
 GOOGLE_GEMINI_API_KEY=YOUR_API_KEY_HERE
 
-🌱 느낀점 & 설계 의도 (면접 어필용)
+🌱 느낀점 & 설계 의도 
 
 화면만 만들어놓는 것이 아닌 데이터 흐름 / 상태 관리 / 유지보수성 중심 설계를 목표로 함
 
