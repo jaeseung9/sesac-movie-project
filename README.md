@@ -21,25 +21,27 @@ Frontend	Next.js, React Hooks, CSS-in-JS, LocalStorage 상태 관리
 Backend / API	Next.js Route Handler API, Google Gemini API
 UI/UX	관리자 전용 Design Token System (Color / Spacing / Typography / Components)
 📁 프로젝트 구조 (공백/포맷 유지)
+```bash
 app/
  ├ admin/
  │  ├ _components/
- │  │  └ AdminLayout.js          # 관리자 UI 공통 레이아웃
+ │  │  └ AdminLayout.js           # 관리자 UI 공통 레이아웃
  │  ├ _lib/style/
- │  │  └ adminTokens.js          # 관리자 전용 Design System
+ │  │  └ adminTokens.js           # 관리자 전용 Design System
  │  ├ users/
- │  │  └ page.js                 # 회원 관리 (조회/추가/수정/삭제/검색)
+ │  │  └ page.js                  # 회원 관리 (조회/추가/수정/삭제/검색)
  │  ├ fqa/
- │  │  └ page.js                 # FAQ 관리 (리스트/상세/수정/삭제)
+ │  │  └ page.js                  # FAQ 관리 (리스트/상세/수정/삭제)
  │  └ notice/
- │     └ create/page.js          # 공지사항 작성 페이지
+ │     └ create/page.js           # 공지사항 작성 페이지
  │
  ├ api/
  │  └ chatbot/
- │     └ route.js                # Gemini 기반 영화 추천 챗봇 API
+ │     └ route.js                 # Gemini 기반 영화 추천 챗봇 API
  │
  └ components/
-    └ Chatbot.js                 # 사용자 화면 플로팅 챗봇 UI
+    └ Chatbot.js                  # 사용자 화면 플로팅 챗봇 UI
+```
 
 🛠 상세 기능 설명
 1) ✅ 회원 관리 (Admin)
