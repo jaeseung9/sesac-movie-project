@@ -3,11 +3,8 @@
 개발 기간
 2025.10.20 ~ 2025.10.24
 
-📎 유튜브 링크
-https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
-
-## 🎬 시연 영상 (브라우저에서 바로 재생)
-https://jaeseung9.github.io/sesac-movie-project/video.html
+## 🎬 시연 영상 
+[시연 영상 바로 재생](https://jaeseung9.github.io/sesac-movie-project/video.html)
 
 Next.js 기반 영화 플랫폼 + 관리자 대시보드 + Gemini AI 영화 추천 챗봇
 관리자 페이지를 통해 회원 / FAQ / 공지사항을 관리하고,
