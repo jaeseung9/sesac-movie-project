@@ -1,5 +1,7 @@
 🎬 MovieHub — Admin Panel & AI Chatbot
 
+개발 기간
+2025.10.20 ~ 2025.10.24
 
 📎 유튜브 링크
 https://youtu.be/AVKieFa0nQY?si=cL048gsrlPEunhGj
