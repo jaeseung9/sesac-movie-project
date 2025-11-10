@@ -25,8 +25,7 @@
 8. [실행 방법](#run)
 9. [환경 변수 (.env.local)](#env)
 10. [느낀점 & 설계 의도](#insights)
-11. [개선 예정 & 로드맵](#roadmap)
-12. [크레딧](#credits)
+11. [크레딧](#credits)
 
 <a href="#top">⬆ Back to top</a>
 
@@ -186,19 +185,7 @@ app/
 
 <a href="#top">⬆ Back to top</a>
 
-<!-- 11) 로드맵 -->
-<h2 id="roadmap">11) 🧭 개선 예정 &amp; 로드맵</h2>
-<ul>
-  <li>LocalStorage 기반 데이터를 <b>Mock API / DB</b>로 전환하여 실제 CRUD 확장</li>
-  <li>관리자 통계 대시보드에 <b>차트(막대/선/원형)</b> 추가</li>
-  <li>챗봇 대화 히스토리 <b>영구 저장</b> 및 추천 결과 즐겨찾기/공유 기능</li>
-  <li><b>접근성(ARIA)</b> 및 키보드 내비게이션 강화</li>
-  <li><b>배포 스크립트/워크플로우</b>(빌드 → 배포) 자동화</li>
-</ul>
-
-<a href="#top">⬆ Back to top</a>
-
-<!-- 12) 크레딧 -->
+<!-- 11) 크레딧 -->
 <h2 id="credits">12) 👏 크레딧</h2>
 <p>Author: 서재승 (Seo Jae Seung)<br/>
 Email: <a href="mailto:seojaeseung9@gmail.com">seojaeseung9@gmail.com</a><br/>
