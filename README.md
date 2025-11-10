@@ -99,110 +99,111 @@ app/
 ```
 <a href="#top">⬆ Back to top</a>
 
-6) 🛠 상세 기능 설명 <a id="details"></a>
-✅ 회원 관리 (Admin)
+<!-- 6) 상세 기능 설명 -->
+<h2 id="details">6) 🛠 상세 기능 설명</h2>
 
-이름 / 이메일 / 전화번호 검색
+<h3>✅ 회원 관리 (Admin)</h3>
+<ul>
+  <li>이름 / 이메일 / 전화번호 검색</li>
+  <li>회원 상태 필터 (활성 / 휴면 / 정지)</li>
+  <li>회원 상세 수정 &amp; 신규 등록</li>
+  <li>LocalStorage 저장으로 데모 환경에서 로그인 상태 유지</li>
+  <li>통계 카드 UI로 회원 현황 시각화</li>
+</ul>
 
-회원 상태 필터 (활성 / 휴면 / 정지)
+<h3>📋 FAQ 관리</h3>
+<ul>
+  <li>FAQ 리스트 테이블 UI</li>
+  <li>질문 클릭 → Modal 상세 보기</li>
+  <li>수정 모드 / 읽기 모드 토글</li>
+  <li>삭제 &amp; 신규 추가 가능</li>
+</ul>
 
-회원 상세 수정 & 신규 등록
+<h3>📌 공지사항 작성</h3>
+<ul>
+  <li>제목 / 내용 입력</li>
+  <li>상단 고정, NEW 강조 옵션</li>
+  <li>LocalStorage 저장 (시연용/데모용으로 간편)</li>
+</ul>
 
-LocalStorage 저장으로 데모 환경에서 로그인 상태 유지
-
-통계 카드 UI로 회원 현황 시각화
-
-📋 FAQ 관리
-
-FAQ 리스트 테이블 UI
-
-질문 클릭 → Modal 상세 보기
-
-수정 모드 / 읽기 모드 토글
-
-삭제 & 신규 추가 가능
-
-📌 공지사항 작성
-
-제목 / 내용 입력
-
-상단 고정, NEW 강조 옵션
-
-LocalStorage 저장 (시연용/데모용으로 간편)
-
-🎨 관리자 전용 UI 디자인 시스템 (Design Tokens)
-
-색상 / 여백 / 폰트 / 컴포넌트 스타일 중앙 집중 관리
-
-일관된 스타일과 유지보수성 향상
+<h3>🎨 관리자 전용 UI 디자인 시스템 (Design Tokens)</h3>
+<ul>
+  <li>색상 / 여백 / 폰트 / 컴포넌트 스타일 중앙 집중 관리</li>
+  <li>일관된 스타일과 유지보수성 향상</li>
+</ul>
 
 <a href="#top">⬆ Back to top</a>
 
-7) 🤖 AI 영화 추천 챗봇 (Google Gemini 2.0 Flash) <a id="chatbot"></a>
-✨ 챗봇 특징
-기능	설명
-영화 추천	장르 / 계절 / 감성 / 키워드 기반 추천
-대화 맥락 유지	최근 10개 대화 기록 반영
-Fallback 대응	API 실패 시 룰 기반 응답으로 자동 전환
-UI	화면 우측 하단 플로팅 버튼, 오픈/클로즈 애니메이션, 자동 스크롤, 엔터 전송
-🎥 추천 예시 시나리오
-사용자 질문	챗봇 응답 예시
-가을 감성 영화 추천해줘	라라랜드 / 비포 선라이즈 / 인터스텔라 등 감성/색감/OST 설명 포함 추천
-왜 그 영화야?	이전 메시지 맥락 기억 → 스토리/색감/OST/감정선 근거로 설명
-액션 추천해줘	존윅 / 매드맥스 / 미션임파서블 등 스타일별 추천
+<!-- 7) AI 영화 추천 챗봇 -->
+<h2 id="chatbot">7) 🤖 AI 영화 추천 챗봇 (Google Gemini 2.0 Flash)</h2>
+
+<h3>✨ 챗봇 특징</h3>
+<ul>
+  <li><b>영화 추천</b>: 장르 / 계절 / 감성 / 키워드 기반 추천</li>
+  <li><b>대화 맥락 유지</b>: 최근 10개 대화 기록 반영</li>
+  <li><b>Fallback 대응</b>: API 실패 시 룰 기반 응답으로 자동 전환</li>
+  <li><b>UI</b>: 화면 우측 하단 플로팅 버튼, 오픈/클로즈 애니메이션, 자동 스크롤, 엔터 전송</li>
+</ul>
+
+<h3>🎥 추천 예시 시나리오</h3>
+<ul>
+  <li><b>가을 감성 영화 추천해줘</b> → 라라랜드 / 비포 선라이즈 / 인터스텔라 등 감성/색감/OST 설명 포함 추천</li>
+  <li><b>왜 그 영화야?</b> → 이전 메시지 맥락 기억, 스토리/색감/OST/감정선 근거로 설명</li>
+  <li><b>액션 추천해줘</b> → 존윅 / 매드맥스 / 미션임파서블 등 스타일별 추천</li>
+</ul>
 
 <a href="#top">⬆ Back to top</a>
 
-8) 💻 실행 방법 <a id="run"></a>
-# 1) 의존성 설치
-npm install
+<!-- 8) 실행 방법 -->
+<h2 id="run">8) 💻 실행 방법</h2>
 
-# 2) 개발 서버 실행
-npm run dev
+<h3>1) 의존성 설치</h3>
+<pre><code>npm install
+</code></pre>
 
+<h3>2) 개발 서버 실행</h3>
+<pre><code>npm run dev
+</code></pre>
 
-기본 포트는 http://localhost:3000 입니다.
-
-<a href="#top">⬆ Back to top</a>
-
-9) 🔑 환경 변수 설정 (.env.local) <a id="env"></a>
-GOOGLE_GEMINI_API_KEY=YOUR_API_KEY_HERE
-
+<p>기본 포트는 <code>http://localhost:3000</code> 입니다.</p>
 
 <a href="#top">⬆ Back to top</a>
 
-10) 🌱 느낀점 & 설계 의도 <a id="insights"></a>
-
-화면만 만드는 것이 아니라 데이터 흐름 / 상태 관리 / 유지보수성 중심으로 설계했습니다.
-
-챗봇은 단답이 아닌 맥락 기반의 설득력 있는 추천 경험을 목표로 했습니다.
-
-관리자 페이지는 디자인 토큰을 활용한 시스템화로 확장성을 고려했습니다.
+<!-- 9) 환경 변수 -->
+<h2 id="env">9) 🔑 환경 변수 설정 (.env.local)</h2>
+<pre><code>GOOGLE_GEMINI_API_KEY=YOUR_API_KEY_HERE
+</code></pre>
 
 <a href="#top">⬆ Back to top</a>
 
-11) 🧭 개선 예정 & 로드맵 <a id="roadmap"></a>
-
- LocalStorage 기반 데이터를 Mock API / DB로 전환하여 실제 CRUD 확장
-
- 관리자 통계 대시보드에 차트(막대/선/원형) 추가
-
- 챗봇 대화 히스토리 영구 저장 및 추천 결과 즐겨찾기/공유 기능
-
- 접근성(ARIA) 및 키보드 내비게이션 강화
-
- 배포 스크립트/워크플로우(빌드 → 배포) 자동화
+<!-- 10) 느낀점 & 설계 의도 -->
+<h2 id="insights">10) 🌱 느낀점 &amp; 설계 의도</h2>
+<ul>
+  <li>화면만 만드는 것이 아니라 <b>데이터 흐름 / 상태 관리 / 유지보수성</b> 중심으로 설계했습니다.</li>
+  <li>챗봇은 단답이 아닌 <b>맥락 기반의 설득력 있는 추천 경험</b>을 목표로 했습니다.</li>
+  <li>관리자 페이지는 <b>디자인 토큰 시스템화</b>로 확장성을 고려했습니다.</li>
+</ul>
 
 <a href="#top">⬆ Back to top</a>
 
-12) 👏 크레딧 <a id="credits"></a>
-
-Author: 서재승 (Seo Jae Seung)
-
-Email: seojaeseung9@gmail.com
-
-Blog: https://seungcoding.tistory.com/
-
-GitHub: https://github.com/jaeseung9
+<!-- 11) 로드맵 -->
+<h2 id="roadmap">11) 🧭 개선 예정 &amp; 로드맵</h2>
+<ul>
+  <li>LocalStorage 기반 데이터를 <b>Mock API / DB</b>로 전환하여 실제 CRUD 확장</li>
+  <li>관리자 통계 대시보드에 <b>차트(막대/선/원형)</b> 추가</li>
+  <li>챗봇 대화 히스토리 <b>영구 저장</b> 및 추천 결과 즐겨찾기/공유 기능</li>
+  <li><b>접근성(ARIA)</b> 및 키보드 내비게이션 강화</li>
+  <li><b>배포 스크립트/워크플로우</b>(빌드 → 배포) 자동화</li>
+</ul>
 
 <a href="#top">⬆ Back to top</a>
+
+<!-- 12) 크레딧 -->
+<h2 id="credits">12) 👏 크레딧</h2>
+<p>Author: 서재승 (Seo Jae Seung)<br/>
+Email: <a href="mailto:seojaeseung9@gmail.com">seojaeseung9@gmail.com</a><br/>
+Blog: <a href="https://seungcoding.tistory.com/" target="_blank" rel="noreferrer">https://seungcoding.tistory.com/</a><br/>
+GitHub: <a href="https://github.com/jaeseung9" target="_blank" rel="noreferrer">https://github.com/jaeseung9</a></p>
+
+<a href="#top">⬆ Back to top</a>
+
