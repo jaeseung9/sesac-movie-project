@@ -1,28 +1,99 @@
-🎬 MovieHub — Admin Panel & AI Chatbot
+<div id="top"></div>
 
-개발 기간
-2025.10.20 ~ 2025.10.24
+<p align="center">
+  <a href="https://youtu.be/REPLACE_WITH_YOUTUBE_ID" target="_blank">
+    <img src="https://img.shields.io/badge/🎥%20YouTube%20Demo-Click%20to%20Watch-red?style=for-the-badge&logo=youtube" />
+  </a>
+  &nbsp;
+  <a href="https://jaeseung9.github.io/sesac-movie-project/video.html" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Web%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=google-chrome" />
+  </a>
+</p>
 
-## 🎬 시연 영상 
-[시연 영상 바로 재생](https://jaeseung9.github.io/sesac-movie-project/video.html)
+<h1 align="center">🎬 MovieHub — Admin Panel & AI Chatbot</h1>
 
-Next.js 기반 영화 플랫폼 + 관리자 대시보드 + Gemini AI 영화 추천 챗봇
-관리자 페이지를 통해 회원 / FAQ / 공지사항을 관리하고,
-사용자 화면에서는 영화 추천 챗봇이 플로팅 UI 형태로 제공됩니다.
+<p align="center">
+  Next.js 기반 영화 플랫폼 + <b>관리자 대시보드</b> + <b>Gemini AI 영화 추천 챗봇</b><br/>
+  관리자 페이지로 회원/FAQ/공지사항을 관리하고, 사용자 화면에는 플로팅 챗봇을 제공합니다.
+</p>
 
-🚀 주요 기여 기능 (내가 직접 구현한 파트)
-기능	설명
-Admin 회원 관리	회원 목록 조회, 검색, 상태 필터, 정보 수정, 신규 회원 추가, 삭제 기능 구현
-FAQ 관리 페이지	FAQ 리스트 & 상세보기 Modal 및 수정 기능
-공지사항 작성 페이지	제목/내용 작성 + 상단 고정/NEW 표시 + LocalStorage 저장
-관리자 UI 디자인 시스템 구축	색상·여백·타이포·버튼·테이블 스타일 토큰 단일 정의
-AI 영화 추천 챗봇	Gemini API + 이전 대화 맥락 기반 추천 챗봇 API & 플로팅 UI
-🧱 사용 기술 스택
-분야	기술
-Frontend	Next.js, React Hooks, CSS-in-JS, LocalStorage 상태 관리
-Backend / API	Next.js Route Handler API, Google Gemini API
-UI/UX	관리자 전용 Design Token System (Color / Spacing / Typography / Components)
-📁 프로젝트 구조 (공백/포맷 유지)
+<p align="center">
+  <a href="https://github.com/jaeseung9/sesac-movie-project" target="_blank">🔗 GitHub Repository</a>
+  ·
+  <a href="https://jaeseung9.github.io/sesac-movie-project/video.html" target="_blank">🎬 시연 영상(웹)</a>
+  ·
+  <a href="https://youtu.be/REPLACE_WITH_YOUTUBE_ID" target="_blank">🎥 YouTube</a>
+</p>
+
+---
+
+## 🗓 개발 기간
+**2025.10.20 ~ 2025.10.24**
+
+---
+
+## 📚 Table of Contents
+1. [프로젝트 소개](#about)
+2. [데모](#demo)
+3. [주요 기여 기능](#features)
+4. [기술 스택](#stack)
+5. [프로젝트 구조](#structure)
+6. [상세 기능 설명](#details)
+7. [AI 챗봇 특징 & 예시 시나리오](#chatbot)
+8. [실행 방법](#run)
+9. [환경 변수 (.env.local)](#env)
+10. [느낀점 & 설계 의도](#insights)
+11. [개선 예정 & 로드맵](#roadmap)
+12. [크레딧](#credits)
+
+<a href="#top">⬆ Back to top</a>
+
+---
+
+## 1) 프로젝트 소개 <a id="about"></a>
+Next.js로 구축한 **영화 플랫폼**입니다.  
+관리자(Admin) 영역에서는 **회원 / FAQ / 공지사항**을 관리하고, 사용자 화면에는 **Gemini 기반 영화 추천 챗봇**을 플로팅 UI로 제공합니다.
+
+<a href="#top">⬆ Back to top</a>
+
+---
+
+## 2) 데모 <a id="demo"></a>
+- ▶ **Web Demo (GitHub Pages)**: https://jaeseung9.github.io/sesac-movie-project/video.html  
+- 🎥 **YouTube**: https://youtu.be/REPLACE_WITH_YOUTUBE_ID
+
+> GitHub README에서는 보안 정책상 동영상이 직접 재생되지 않을 수 있어, 상단 배지/링크를 통해 시청하도록 구성했습니다.
+
+<a href="#top">⬆ Back to top</a>
+
+---
+
+## 3) 🚀 주요 기여 기능 (내가 직접 구현한 파트) <a id="features"></a>
+
+| 기능 | 설명 |
+|---|---|
+| **Admin 회원 관리** | 회원 목록 조회, 검색, 상태 필터(활성/휴면/정지), 정보 수정, 신규 회원 추가, 삭제 |
+| **FAQ 관리 페이지** | FAQ 리스트 & 상세보기 Modal, 수정/읽기 모드 토글 |
+| **공지사항 작성 페이지** | 제목/내용 작성, 상단 고정/NEW 표시, LocalStorage 기반 저장 |
+| **관리자 UI 디자인 시스템** | 색상·여백·타이포·버튼·테이블 등 **Design Token** 단일 정의 |
+| **AI 영화 추천 챗봇** | **Gemini API** + 최근 대화 맥락 기반 추천, 플로팅 UI |
+
+<a href="#top">⬆ Back to top</a>
+
+---
+
+## 4) 🧱 사용 기술 스택 <a id="stack"></a>
+
+**Frontend**: Next.js, React Hooks, CSS-in-JS, LocalStorage  
+**Backend / API**: Next.js Route Handler API, Google Gemini API  
+**UI/UX**: 관리자 전용 Design Token System (Color / Spacing / Typography / Components)
+
+<a href="#top">⬆ Back to top</a>
+
+---
+
+## 5) 📁 프로젝트 구조 (공백/포맷 유지) <a id="structure"></a>
+
 ```bash
 app/
  ├ admin/
@@ -43,10 +114,11 @@ app/
  │
  └ components/
     └ Chatbot.js                  # 사용자 화면 플로팅 챗봇 UI
-```
+'''
+<a href="#top">⬆ Back to top</a>
 
-🛠 상세 기능 설명
-1) ✅ 회원 관리 (Admin)
+6) 🛠 상세 기능 설명 <a id="details"></a>
+✅ 회원 관리 (Admin)
 
 이름 / 이메일 / 전화번호 검색
 
@@ -54,11 +126,11 @@ app/
 
 회원 상세 수정 & 신규 등록
 
-LocalStorage 저장 → 로그인 상태 유지 가능
+LocalStorage 저장으로 데모 환경에서 로그인 상태 유지
 
 통계 카드 UI로 회원 현황 시각화
 
-2) 📋 FAQ 관리
+📋 FAQ 관리
 
 FAQ 리스트 테이블 UI
 
@@ -66,54 +138,89 @@ FAQ 리스트 테이블 UI
 
 수정 모드 / 읽기 모드 토글
 
-삭제 & 신규 FAQ 추가 가능
+삭제 & 신규 추가 가능
 
-3) 📌 공지사항 작성
+📌 공지사항 작성
 
 제목 / 내용 입력
 
-상단 고정, NEW 강조 표시 옵션
+상단 고정, NEW 강조 옵션
 
-LocalStorage 저장 방식 → 데모/시연 환경에서 유용
+LocalStorage 저장 (시연용/데모용으로 간편)
 
-4) 🎨 관리자 전용 UI 디자인 시스템 (Design Tokens)
+🎨 관리자 전용 UI 디자인 시스템 (Design Tokens)
 
 색상 / 여백 / 폰트 / 컴포넌트 스타일 중앙 집중 관리
 
-유지보수성 + 통일된 관리자 UI 제공
+일관된 스타일과 유지보수성 향상
 
-🤖 AI 영화 추천 챗봇 (Google Gemini 2.0 Flash)
+<a href="#top">⬆ Back to top</a>
+
+7) 🤖 AI 영화 추천 챗봇 (Google Gemini 2.0 Flash) <a id="chatbot"></a>
 ✨ 챗봇 특징
 기능	설명
 영화 추천	장르 / 계절 / 감성 / 키워드 기반 추천
-대화 맥락 유지	최근 10개의 대화 기록을 바탕으로 답변
-Fallback 대응	API 실패 시 rule-based 응답 자동 전환
-챗봇 UI
-
-화면 우측 하단 플로팅 버튼
-
-부드러운 오픈/클로즈 애니메이션
-
-자동 스크롤, 말풍선 스타일, 입력창 엔터 전송
-
+대화 맥락 유지	최근 10개 대화 기록 반영
+Fallback 대응	API 실패 시 룰 기반 응답으로 자동 전환
+UI	화면 우측 하단 플로팅 버튼, 오픈/클로즈 애니메이션, 자동 스크롤, 엔터 전송
 🎥 추천 예시 시나리오
 사용자 질문	챗봇 응답 예시
-가을 감성 영화 추천해줘	라라랜드 / 비포 선라이즈 / 인터스텔라 중 상황에 맞춰 감성 설명 포함 추천
-왜 그 영화야?	이전 메시지 기억 → 스토리/색감/OST/감정선 근거로 설득력 있게 설명
+가을 감성 영화 추천해줘	라라랜드 / 비포 선라이즈 / 인터스텔라 등 감성/색감/OST 설명 포함 추천
+왜 그 영화야?	이전 메시지 맥락 기억 → 스토리/색감/OST/감정선 근거로 설명
 액션 추천해줘	존윅 / 매드맥스 / 미션임파서블 등 스타일별 추천
 
-💻 실행 방법
+<a href="#top">⬆ Back to top</a>
+
+8) 💻 실행 방법 <a id="run"></a>
+# 1) 의존성 설치
 npm install
+
+# 2) 개발 서버 실행
 npm run dev
 
-🔑 환경 변수 설정 (.env.local)
+
+기본 포트는 http://localhost:3000 입니다.
+
+<a href="#top">⬆ Back to top</a>
+
+9) 🔑 환경 변수 설정 (.env.local) <a id="env"></a>
 GOOGLE_GEMINI_API_KEY=YOUR_API_KEY_HERE
 
-🌱 느낀점 & 설계 의도 
 
-화면만 만들어놓는 것이 아닌 데이터 흐름 / 상태 관리 / 유지보수성 중심 설계를 목표로 함
+<a href="#top">⬆ Back to top</a>
 
-챗봇은 단답 아닌 맥락 기반 감성 추천 경험 제공에 집중
+10) 🌱 느낀점 & 설계 의도 <a id="insights"></a>
 
-관리자 페이지는 UI 시스템화로 확장 가능성을 고려해 설계
+화면만 만드는 것이 아니라 데이터 흐름 / 상태 관리 / 유지보수성 중심으로 설계했습니다.
 
+챗봇은 단답이 아닌 맥락 기반의 설득력 있는 추천 경험을 목표로 했습니다.
+
+관리자 페이지는 디자인 토큰을 활용한 시스템화로 확장성을 고려했습니다.
+
+<a href="#top">⬆ Back to top</a>
+
+11) 🧭 개선 예정 & 로드맵 <a id="roadmap"></a>
+
+ LocalStorage 기반 데이터를 Mock API / DB로 전환하여 실제 CRUD 확장
+
+ 관리자 통계 대시보드에 차트(막대/선/원형) 추가
+
+ 챗봇 대화 히스토리 영구 저장 및 추천 결과 즐겨찾기/공유 기능
+
+ 접근성(ARIA) 및 키보드 내비게이션 강화
+
+ 배포 스크립트/워크플로우(빌드 → 배포) 자동화
+
+<a href="#top">⬆ Back to top</a>
+
+12) 👏 크레딧 <a id="credits"></a>
+
+Author: 서재승 (Seo Jae Seung)
+
+Email: seojaeseung9@gmail.com
+
+Blog: https://seungcoding.tistory.com/
+
+GitHub: https://github.com/jaeseung9
+
+<a href="#top">⬆ Back to top</a>
