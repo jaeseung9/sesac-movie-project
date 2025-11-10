@@ -186,7 +186,7 @@ app/
 <a href="#top">⬆ Back to top</a>
 
 <!-- 11) 크레딧 -->
-<h2 id="credits">12) 👏 크레딧</h2>
+<h2 id="credits">11) 👏 크레딧</h2>
 <p>Author: 서재승 (Seo Jae Seung)<br/>
 Email: <a href="mailto:seojaeseung9@gmail.com">seojaeseung9@gmail.com</a><br/>
 Blog: <a href="https://seungcoding.tistory.com/" target="_blank" rel="noreferrer">https://seungcoding.tistory.com/</a><br/>
