@@ -1,15 +1,5 @@
 <div id="top"></div>
 
-<p align="center">
-  <a href="https://youtu.be/REPLACE_WITH_YOUTUBE_ID" target="_blank">
-    <img src="https://img.shields.io/badge/🎥%20YouTube%20Demo-Click%20to%20Watch-red?style=for-the-badge&logo=youtube" />
-  </a>
-  &nbsp;
-  <a href="https://jaeseung9.github.io/sesac-movie-project/video.html" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Web%20Demo-GitHub%20Pages-blue?style=for-the-badge&logo=google-chrome" />
-  </a>
-</p>
-
 <h1 align="center">🎬 MovieHub — Admin Panel & AI Chatbot</h1>
 
 <p align="center">
@@ -18,10 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/jaeseung9/sesac-movie-project" target="_blank">🔗 GitHub Repository</a>
-  ·
-  <a href="https://jaeseung9.github.io/sesac-movie-project/video.html" target="_blank">🎬 시연 영상(웹)</a>
-  ·
+
   <a href="https://youtu.be/REPLACE_WITH_YOUTUBE_ID" target="_blank">🎥 YouTube</a>
 </p>
 
