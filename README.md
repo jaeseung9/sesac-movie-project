@@ -7,11 +7,6 @@
   관리자 페이지로 회원/FAQ/공지사항을 관리하고, 사용자 화면에는 플로팅 챗봇을 제공합니다.
 </p>
 
-<p align="center">
-
-  <a href="https://youtu.be/REPLACE_WITH_YOUTUBE_ID" target="_blank">🎥 YouTube</a>
-</p>
-
 ---
 
 ## 🗓 개발 기간
