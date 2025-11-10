@@ -96,7 +96,7 @@ app/
  │
  └ components/
     └ Chatbot.js                  # 사용자 화면 플로팅 챗봇 UI
-'''
+```
 <a href="#top">⬆ Back to top</a>
 
 6) 🛠 상세 기능 설명 <a id="details"></a>
