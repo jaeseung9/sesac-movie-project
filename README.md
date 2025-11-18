@@ -40,7 +40,7 @@ Next.js로 구축한 **영화 플랫폼**입니다.
 ---
 
 ## 2) 데모 <a id="demo"></a>
-- ▶ **Web Demo (GitHub Pages)**: https://jaeseung9.github.io/sesac-movie-project/video.html  
+- ▶ ** 시연 영상 **: https://jaeseung9.github.io/sesac-movie-project/video.html  
 - 🎥 **YouTube**: https://youtu.be/AVKieFa0nQY?si=Zg9ViNtmsiRokucr
 
 > GitHub README에서는 보안 정책상 동영상이 직접 재생되지 않을 수 있어, 상단 배지/링크를 통해 시청하도록 구성했습니다.
