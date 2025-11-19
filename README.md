@@ -5,6 +5,61 @@
 <p align="center">
   Next.js 기반 영화 플랫폼 + <b>관리자 대시보드</b> + <b>Gemini AI 영화 추천 챗봇</b><br/>
   관리자 페이지로 회원/FAQ/공지사항을 관리하고, 사용자 화면에는 플로팅 챗봇을 제공합니다.
+<!-- 💬 Chatbot 대화 화면 -->
+<table>
+  <tr>
+    <td>
+      <img
+        src="https://github.com/user-attachments/assets/08c56526-4580-4506-b67d-e4fd2f4444c9"
+        width="380"
+        alt="Chatbot Conversation 1"
+      />
+    </td>
+    <td>
+      <img
+        src="https://github.com/user-attachments/assets/b7600da5-5295-4e13-8f4a-8992a4fc4665"
+        width="380"
+        alt="Chatbot Conversation 2"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        src="https://github.com/user-attachments/assets/4d589548-4566-4ce1-b7cb-c08edacf2b9e"
+        width="380"
+        alt="Chatbot Conversation 3"
+      />
+    </td>
+    <td>
+      <img
+        src="https://github.com/user-attachments/assets/f1115c08-6b7d-4b97-aa11-1276af3aec71"
+        width="380"
+        alt="Chatbot Conversation 4"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img
+        src="https://github.com/user-attachments/assets/debb8ac5-2e3b-4d42-a4db-ae7dfda4f9c0"
+        width="380"
+        alt="Chatbot Conversation 5"
+      />
+    </td>
+  </tr>
+</table>
+
+<!-- 🛠 Admin 전체 화면 -->
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/34ac70e3-35de-497c-89fb-cd3cf66f6a32"
+    width="1200"
+    alt="Admin Dashboard Overview"
+  />
+</p>
+
+
 </p>
 
 ---
