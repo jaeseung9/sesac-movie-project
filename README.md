@@ -23,7 +23,12 @@
     width="170"
     alt="Chatbot Conversation 3"
   />
-  <img
+ 
+</p>
+
+<p align="center">
+
+ <img
     src="https://github.com/user-attachments/assets/f1115c08-6b7d-4b97-aa11-1276af3aec71"
     width="170"
     alt="Chatbot Conversation 4"
@@ -33,7 +38,7 @@
     width="170"
     alt="Chatbot Conversation 5"
   />
-</p>
+  />
 
 <!-- 🛠 Admin 전체 화면 -->
 <p align="center">
