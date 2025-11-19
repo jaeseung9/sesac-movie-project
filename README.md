@@ -10,35 +10,31 @@
 <p align="center">
   <img
     src="https://github.com/user-attachments/assets/08c56526-4580-4506-b67d-e4fd2f4444c9"
-    width="170"
+    width="250"
     alt="Chatbot Conversation 1"
   />
   <img
     src="https://github.com/user-attachments/assets/b7600da5-5295-4e13-8f4a-8992a4fc4665"
-    width="170"
+    width="250"
     alt="Chatbot Conversation 2"
   />
   <img
     src="https://github.com/user-attachments/assets/4d589548-4566-4ce1-b7cb-c08edacf2b9e"
-    width="170"
+    width="250"
     alt="Chatbot Conversation 3"
   />
- 
-</p>
-
-<p align="center">
-
- <img
+   <img
     src="https://github.com/user-attachments/assets/f1115c08-6b7d-4b97-aa11-1276af3aec71"
-    width="170"
+    width="250"
     alt="Chatbot Conversation 4"
   />
   <img
     src="https://github.com/user-attachments/assets/debb8ac5-2e3b-4d42-a4db-ae7dfda4f9c0"
-    width="170"
+    width="250"
     alt="Chatbot Conversation 5"
   />
-  />
+ 
+</p>
 
 <!-- 🛠 Admin 전체 화면 -->
 <p align="center">
